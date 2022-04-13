@@ -29,20 +29,8 @@ import Calculator from './components/Calculator.vue'
   font-weight: normal;
 }
 
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+h1 {
+  font-size: 65px;
 }
 
 @media (hover: hover) {
@@ -75,8 +63,5 @@ a,
     flex-wrap: wrap;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
 }
 </style>

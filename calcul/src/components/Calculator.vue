@@ -1,6 +1,10 @@
 <template>
   <div class="container">
 
+  <div class="total">
+    {{total || '0'}}
+    </div>
+
   <div class="number">
     <button @click="append('0')">0</button>
     <button @click="append('1')">1</button>
@@ -12,6 +16,7 @@
     <button @click="append('7')">7</button>
     <button @click="append('8')">8</button>
     <button @click="append('9')">9</button>
+    <button @click="dot('.')">.</button>
   </div>
 
     <div class="operator">
@@ -19,13 +24,12 @@
     <button @click="substract" >-</button>
     <button @click="multiply" >x</button>
     <button @click="divide" >/</button>
+    <button @click="pourcenage" >%</button>
+    <button @click="sign" >+/-</button>
     <button @click="equal" >=</button>
     <button @click="clear">C</button>
     </div>
 
-    <div class="total">
-    {{total || '0'}}
-    </div>
   </div>
 </template>
 
@@ -53,7 +57,7 @@ export default {
           this.total = `${this.total}${number}`;
         },
 
-         setPrevious() {
+        setPrevious() {
           this.previous = this.total;
           this.operatorClicked = true;
         },
@@ -77,6 +81,15 @@ export default {
           this.operator = (a, b) => b / a;
           this.setPrevious();
         },
+       
+        pourcenage() {
+          this.total = `${parseFloat(this.total) / 100}`
+        },
+       
+        sign() {
+          this.total = this.total.charAt(0) === '-' ?
+          this.total.slice(1) : `-${this.total}`;
+        },
 
         equal() {
           this.total = `${this.operator(
@@ -84,6 +97,12 @@ export default {
           parseFloat(this.previous)
           )}`;
           this.previous = null;
+        },
+
+        dot() {
+          if (this.total.indexOf('.') === -1) {
+            this.append('.');
+          }
         }
     }
 }
@@ -93,11 +112,13 @@ export default {
 .total {
 background-color: cornflowerblue;
 height: 150px;
+font-size: 75px;
 }
 
 button {
  width: 150px;
  height: 150px;
+ font-size: 55px;
 }
 
 h3 {
