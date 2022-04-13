@@ -1,0 +1,56 @@
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 55px;
+}
+button {
+  width: 150px;
+  height: 150px;
+  font-size: 45px;
+}
+
+.total {
+  background-color: lightblue;
+  height: 150px;
+  font-size: 65px;
+}
+
+.container {
+  margin-top: 40px;
+  width: 600px;
+}
+</style>
+
+<div class="container">
+
+    <div class="total">{{ total }}</div>
+
+  <div class="top-buttons">
+    <button (click)="clear()">C</button>
+    <button (click)="percent()">%</button>
+  </div>
+
+  <div class="operators">
+    <button (click)="add()">+</button>
+    <button (click)="substract()">-</button>
+    <button (click)="divide()">/</button>
+    <button (click)="multiplicate()">*</button>
+  </div>
+
+  <div class="numbers">
+    <button (click)="getValue(9)">9</button>
+    <button (click)="getValue(8)">8</button>
+    <button (click)="getValue(7)">7</button>
+    <button (click)="getValue(6)">6</button>
+    <button (click)="getValue(5)">5</button>
+    <button (click)="getValue(4)">4</button>
+    <button (click)="getValue(3)">3</button>
+    <button (click)="getValue(2)">2</button>
+    <button (click)="getValue(1)">1</button>
+    <button (click)="getValue(0)">0</button>
+    <button (click)="equal()">=</button>
+  </div>
+
+</div>
